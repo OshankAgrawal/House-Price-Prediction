@@ -1,4 +1,5 @@
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
 
 class HousePriceModel:
     print("Class is called")
@@ -21,3 +22,10 @@ class HousePriceModel:
         """
         print("Model predict function call")
         return self.model.predict(x)
+    
+    def evaluate(self, x, y):
+        """
+            Evaluate the model using Mean Squared Error.
+        """
+        predictions = self.predict(x)
+        return mean_squared_error(y, predictions)
